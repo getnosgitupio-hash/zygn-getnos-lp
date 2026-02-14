@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import boatcraftLogo from "../assets/form-logo.png";
-import "../components/pop.css";
+import "../Components/pop.css";
 
 const Popup = ({ show, onClose }) => {
   const [msg, setMsg] = useState("");
