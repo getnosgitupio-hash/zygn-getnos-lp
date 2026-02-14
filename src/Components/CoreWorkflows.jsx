@@ -4,7 +4,7 @@ import ProgressLoad from "./ProgressLoad";
 import Work from "../assets/mywork.png"
 import Sales from "../assets/sales.png"
 import Procurement from "../assets/procurement.png"
-import Accounts from "../assets/accounts.png"
+import Accounts from "../assets/Accounts.png"
 
 /* =============================
    MOTION
