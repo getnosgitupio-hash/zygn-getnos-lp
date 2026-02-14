@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import ProgressLoad from "./ProgressLoad";
 import Work from "../assets/mywork.png"
 import Sales from "../assets/sales.png"
-import Procurement from "../assets/Procurement.png"
+import Procurement from "../assets/procurement.png"
 import Accounts from "../assets/accounts.png"
 
 /* =============================
@@ -57,7 +57,7 @@ const ImageBlock = ({ src }) => (
 /* =============================
    MAIN COMPONENT
 ============================= */
-export default function CoreWorkflows({openPopup }) {
+export default function CoreWorkflows({ openPopup }) {
   return (
     <section className="relative overflow-hidden bg-black px-6 py-20 sm:py-32 text-white">
       {/* subtle grid */}
@@ -82,84 +82,84 @@ export default function CoreWorkflows({openPopup }) {
 
         {/* ROW 1 – Content | Image */}
         <motion.div
-  variants={rowAnim}
-  className="grid items-center gap-14 md:grid-cols-2"
->
-  <ContentBlock
-    title="Work &"
-    highlight="Productivity"
-    desc={
-      <ul className="space-y-2">
-        <li><b className="text-white">Task:</b> Effortlessly plan, assign, and track all your tasks in one organised view.</li>
-        <li><b className="text-white">Notes:</b> Capture important details, ideas, and updates instantly against the right project or client.</li>
-        <li><b className="text-white">Calendar:</b> Schedule client meetings, delivery dates, and project deadlines with ease and clarity.</li>
-        <li><b className="text-white">My Work Hub:</b> Get a focused view of what each team member is working on for effortless productivity tracking.</li>
-      </ul>
-    }
-  />
-  <ImageBlock src={Work} />
-</motion.div>
+          variants={rowAnim}
+          className="grid items-center gap-14 md:grid-cols-2"
+        >
+          <ContentBlock
+            title="Work &"
+            highlight="Productivity"
+            desc={
+              <ul className="space-y-2">
+                <li><b className="text-white">Task:</b> Effortlessly plan, assign, and track all your tasks in one organised view.</li>
+                <li><b className="text-white">Notes:</b> Capture important details, ideas, and updates instantly against the right project or client.</li>
+                <li><b className="text-white">Calendar:</b> Schedule client meetings, delivery dates, and project deadlines with ease and clarity.</li>
+                <li><b className="text-white">My Work Hub:</b> Get a focused view of what each team member is working on for effortless productivity tracking.</li>
+              </ul>
+            }
+          />
+          <ImageBlock src={Work} />
+        </motion.div>
 
 
-{/* ROW 2 – Image | Content */}
-<motion.div
-  variants={rowAnim}
-  className="grid items-center gap-14 md:grid-cols-2"
->
-  <ImageBlock src={Sales} />
-  <ContentBlock
-    title="Sales &"
-    highlight="Client Collaboration"
-    desc={
-      <ul className="space-y-2">
-        <li><b className="text-white">Sales:</b> Streamlined sales management to track enquiries, follow-ups, and closures across your pipeline.</li>
-        <li><b className="text-white">Design Flow:</b> Enable seamless collaboration, real-time updates, and smarter design workflows across teams.</li>
-        <li><b className="text-white">Conversation:</b>  Automate lead nurturing with intelligent WhatsApp integration and timely client touchpoints.</li>
-      </ul>
-    }
-  />
-</motion.div>
+        {/* ROW 2 – Image | Content */}
+        <motion.div
+          variants={rowAnim}
+          className="grid items-center gap-14 md:grid-cols-2"
+        >
+          <ImageBlock src={Sales} />
+          <ContentBlock
+            title="Sales &"
+            highlight="Client Collaboration"
+            desc={
+              <ul className="space-y-2">
+                <li><b className="text-white">Sales:</b> Streamlined sales management to track enquiries, follow-ups, and closures across your pipeline.</li>
+                <li><b className="text-white">Design Flow:</b> Enable seamless collaboration, real-time updates, and smarter design workflows across teams.</li>
+                <li><b className="text-white">Conversation:</b>  Automate lead nurturing with intelligent WhatsApp integration and timely client touchpoints.</li>
+              </ul>
+            }
+          />
+        </motion.div>
 
 
-{/* ROW 3 – Content | Image */}
-<motion.div
-  variants={rowAnim}
-  className="grid items-center gap-14 md:grid-cols-2"
->
-  <ContentBlock
-    title="Execution &"
-    highlight="Operations"
-    desc={
-      <ul className="space-y-2">
-        <li><b className="text-white">Procurement:</b> Intuitive dashboard designed to optimise your procurement lifecycle from request to delivery.</li>
-        <li><b className="text-white">Onsite Operations:</b> Efficient onsite management for clear tasks, timelines, and seamless project execution.</li>
-        <li><b className="text-white">Stock Inventory:</b> Efficiently manage and track your inventory across projects and locations with Zygn.</li>
-        <li><b className="text-white">BOQ:</b> Create, manage, and track BOQs with clear quantities, costs, and project-wise visibility.</li>
-        <li><b className="text-white">Site Coordination:</b> Coordinate site tasks, materials, and teams so execution stays aligned with plan.</li>
-      </ul>
-    }
-  />
-  <ImageBlock src={Procurement} />
-</motion.div>
+        {/* ROW 3 – Content | Image */}
+        <motion.div
+          variants={rowAnim}
+          className="grid items-center gap-14 md:grid-cols-2"
+        >
+          <ContentBlock
+            title="Execution &"
+            highlight="Operations"
+            desc={
+              <ul className="space-y-2">
+                <li><b className="text-white">Procurement:</b> Intuitive dashboard designed to optimise your procurement lifecycle from request to delivery.</li>
+                <li><b className="text-white">Onsite Operations:</b> Efficient onsite management for clear tasks, timelines, and seamless project execution.</li>
+                <li><b className="text-white">Stock Inventory:</b> Efficiently manage and track your inventory across projects and locations with Zygn.</li>
+                <li><b className="text-white">BOQ:</b> Create, manage, and track BOQs with clear quantities, costs, and project-wise visibility.</li>
+                <li><b className="text-white">Site Coordination:</b> Coordinate site tasks, materials, and teams so execution stays aligned with plan.</li>
+              </ul>
+            }
+          />
+          <ImageBlock src={Procurement} />
+        </motion.div>
 
 
-{/* ROW 4 – Image | Content */}
-<motion.div
-  variants={rowAnim}
-  className="grid items-center gap-14 md:grid-cols-2"
->
-  <ImageBlock src={Work} />
-  <ContentBlock
-    title="People &"
-    highlight="Finance"
-    desc={
-      <ul className="space-y-2">
-        <li><b className="text-white">Human Resources:</b> Streamline team management, attendance, and employee operations in one place.</li>
-        <li><b className="text-white">Accounts:</b> Manage finances, invoicing, and expenses effortlessly with clear project-wise visibility.</li>
-      </ul>
-    }
-  />
-</motion.div>
+        {/* ROW 4 – Image | Content */}
+        <motion.div
+          variants={rowAnim}
+          className="grid items-center gap-14 md:grid-cols-2"
+        >
+          <ImageBlock src={Work} />
+          <ContentBlock
+            title="People &"
+            highlight="Finance"
+            desc={
+              <ul className="space-y-2">
+                <li><b className="text-white">Human Resources:</b> Streamline team management, attendance, and employee operations in one place.</li>
+                <li><b className="text-white">Accounts:</b> Manage finances, invoicing, and expenses effortlessly with clear project-wise visibility.</li>
+              </ul>
+            }
+          />
+        </motion.div>
 
 
 
@@ -169,11 +169,11 @@ export default function CoreWorkflows({openPopup }) {
             See How Zygn Brings Everything Together
           </button>
           <p className="mt-4 text-sm lg:text-[16px] text-white/60">
-           <span className="text-red-400">Closing soon… 50+</span> India-certified studios use this daily workflow.
+            <span className="text-red-400">Closing soon… 50+</span> India-certified studios use this daily workflow.
           </p>
           <div className="mt-3"> <ProgressLoad /></div>
         </div>
-        
+
       </motion.div>
     </section>
   );
