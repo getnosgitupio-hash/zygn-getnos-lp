@@ -46,7 +46,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 // 3. BLOCK PERSONAL EMAILS
 // ================================
 $blocked_domains = [
-    "gmail.com","yahoo.com","outlook.com","hotmail.com","icloud.com",
+    "outlook.com","hotmail.com","icloud.com",
     "mailinator.com","guerrillamail.com","10minutemail.com","tempmail.com","yopmail.com"
 ];
 
