@@ -4,7 +4,7 @@ import ProgressLoad from "./ProgressLoad"; // ✅ FIXED IMPORT
 
 // assets you already have
 import bgImage from "../assets/zygn-story-bg.png";
-import storyImg from "../assets/story-image.png";
+import storyImg from "../assets/logo.svg";
 
 export default function ZygnStorySection({ isPopupOpen = false, openPopup }) {
   return (
@@ -41,13 +41,8 @@ export default function ZygnStorySection({ isPopupOpen = false, openPopup }) {
             className="relative mx-auto w-full max-w-[350px]"
           >
             {/* Red backing card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="absolute -right-4 -bottom-4 h-full w-full rounded-xl bg-red-600"
-            />
+            
+            
 
             {/* Image card */}
             <motion.div

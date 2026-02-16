@@ -1,27 +1,20 @@
 <?php
+header("Content-Type: application/json");
+
 // ================================
-// DEBUG (REMOVE AFTER TESTING)
+// DEBUG (TURN OFF IN PRODUCTION)
 // ================================
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ini_set('display_errors', 0);
+error_reporting(0);
 
 // ================================
 // HANDLE GET REQUEST
 // ================================
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo "<!DOCTYPE html>
-<html lang='en'>
-<head>
-<meta charset='UTF-8'>
-<title>Willwork API</title>
-</head>
-<body>
-<h2>Willwork API</h2>
-<p>This URL accepts POST requests only.</p>
-<p>Please submit the form from the frontend.</p>
-</body>
-</html>";
+    echo json_encode([
+        "status" => "error",
+        "message" => "Invalid request method"
+    ]);
     exit;
 }
 
@@ -42,7 +35,11 @@ $phone = $country_code . " " . $mobile;
 // 2. VALIDATE EMAIL
 // ================================
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die("Invalid email address.");
+    echo json_encode([
+        "status" => "error",
+        "message" => "Invalid email address"
+    ]);
+    exit;
 }
 
 // ================================
@@ -56,19 +53,32 @@ $blocked_domains = [
 $emailDomain = strtolower(substr(strrchr($email, "@"), 1));
 
 if (in_array($emailDomain, $blocked_domains)) {
-    die("Please use your company work email only.");
+    echo json_encode([
+        "status" => "error",
+        "message" => "Please use your company work email only."
+    ]);
+    exit;
 }
 
 // ================================
 // 4. PREVENT DUPLICATES
 // ================================
 $file = "submitted_emails.txt";
-$emails = file_exists($file) ? file($file, FILE_IGNORE_NEW_LINES) : [];
+
+if (!file_exists($file)) {
+    file_put_contents($file, "");
+}
+
+$emails = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 foreach ($emails as $line) {
     $parts = explode(" | ", $line);
-    if (isset($parts[0]) && strtolower($parts[0]) === strtolower($email)) {
-        die("This email has already been submitted.");
+    if (!empty($parts[0]) && strtolower(trim($parts[0])) === strtolower($email)) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "This email has already been submitted."
+        ]);
+        exit;
     }
 }
 
@@ -90,7 +100,7 @@ $message .= "Submitted On: " . date("Y-m-d H:i:s") . "\n";
 $headers  = "From: hello@getnos.io\r\n";
 $headers .= "Reply-To: $email\r\n";
 
-mail($to, $subject, $message, $headers);
+@mail($to, $subject, $message, $headers);
 
 // ================================
 // 6. SAVE EMAIL
@@ -98,9 +108,11 @@ mail($to, $subject, $message, $headers);
 file_put_contents($file, "$email | " . date("Y-m-d H:i:s") . "\n", FILE_APPEND);
 
 // ================================
-// 7. REDIRECT TO THANK YOU PAGE
+// 7. SUCCESS RESPONSE
 // ================================
-header("Location: https://getnos.io/zygn/thank-you/");
+echo json_encode([
+  "status" => "success",
+  "message" => "Form submitted successfully!"
+]);
 exit;
-
 ?>

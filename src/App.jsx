@@ -25,9 +25,7 @@ const IndustryTestedSection = lazy(() =>
 const FirmChangeSection = lazy(() =>
   import("./Components/FirmChangeSection.jsx")
 );
-const DemoAuditValue = lazy(() =>
-  import("./Components/DemoAuditValue.jsx")
-);
+
 const RiskControlSection = lazy(() =>
   import("./Components/RiskControlSection.jsx")
 );
@@ -63,7 +61,7 @@ function App() {
         <CoreWorkflows openPopup={() => setIsPopupOpen(true)} />
         <IndustryTestedSection openPopup={() => setIsPopupOpen(true)} />
         <FirmChangeSection openPopup={() => setIsPopupOpen(true)} />
-        <DemoAuditValue openPopup={() => setIsPopupOpen(true)} />
+       
         <RiskControlSection openPopup={() => setIsPopupOpen(true)} />
         {/* <DesignTransformations /> */}
         <ZygnStorySection openPopup={() => setIsPopupOpen(true)} />
